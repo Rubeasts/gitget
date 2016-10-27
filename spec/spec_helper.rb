@@ -15,7 +15,6 @@ FIXTURES_FOLDER = 'spec/fixtures'.freeze
 CASSETTES_FOLDER = "#{FIXTURES_FOLDER}/cassettes".freeze
 CASSETTE_FILE = 'github_api'.freeze
 
-RESULTS = YAML.load(File.read('spec/fixtures/results.yml')).freeze
 USERNAME = 'rjollet'.freeze
 
 if File.file?('config/github_credential.yml')
