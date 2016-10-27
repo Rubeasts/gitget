@@ -7,9 +7,9 @@ require 'yaml'
 require 'vcr'
 require 'webmock'
 
-require_relative '../lib/github_developer'
-require_relative '../lib/github_api'
-require_relative '../lib/github_repository'
+require_relative '../lib/gitget/github_developer'
+require_relative '../lib/gitget/github_api'
+require_relative '../lib/gitget/github_repository'
 
 FIXTURES_FOLDER = 'spec/fixtures'.freeze
 CASSETTES_FOLDER = "#{FIXTURES_FOLDER}/cassettes".freeze
