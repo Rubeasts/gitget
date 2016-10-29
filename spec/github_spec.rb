@@ -10,11 +10,7 @@ describe 'Github specifications' do
 
   before do
     VCR.insert_cassette CASSETTE_FILE, record: :new_episodes
-    @github_api = Github::API.new(
-      ENV['GH_USERNAME'],
-      ENV['GH_TOKEN']
-    )
-    @developer = Github::Developer.find(@github_api, username: USERNAME)
+    @developer = Github::Developer.find(username: USERNAME)
   end
 
   after do

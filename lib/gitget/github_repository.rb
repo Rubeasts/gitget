@@ -9,8 +9,7 @@ module  Github
                 :watchers_count, :has_issues, :has_downloads, :forks_count,
                 :open_issues_count, :forks, :open_issues, :watchers
 
-    def initialize(github_api, data: nil)
-      @github_api = github_api
+    def initialize(data: nil)
       load_data(data)
     end
 
@@ -21,7 +20,7 @@ module  Github
       %w(
         contributors commit_activity code_frequency participation punch_card
       ).each do |stat|
-        @stats[stat] = @github_api.repo_stat(@full_name, stat)
+        @stats[stat] = Github::API.repo_stat(@full_name, stat)
       end
     end
 

@@ -6,8 +6,7 @@ module  Github
   class Developer
     attr_reader :name, :id, :public_repos, :followers, :following
 
-    def initialize(github_api, data:)
-      @github_api = github_api
+    def initialize(data:)
       @name = data['login']
       @id = data['id']
       @public_repos = data['public_repos']
@@ -16,26 +15,26 @@ module  Github
     def repos
       return @repos if @repos
 
-      @repos = @github_api.user_repos(@name).map do |repo_data|
-        Github::Repository.new(@github_api, data: repo_data)
+      @repos = Github::API.user_repos(@name).map do |repo_data|
+        Github::Repository.new(data: repo_data)
       end
     end
 
     def followers
       return @followers if @followers
 
-      @followers = @github_api.user_followers @name
+      @followers = Github::API.user_followers @name
     end
 
     def following
       return @following if @following
 
-      @following = @github_api.user_following @name
+      @following = Github::API.user_following @name
     end
 
-    def self.find(github_api, username:)
-      user_data = github_api.user_info(username)
-      new(github_api, data: user_data)
+    def self.find(username:)
+      user_data = Github::API.user_info(username)
+      new(data: user_data)
     end
   end
 end
