@@ -3,6 +3,18 @@ require 'rake/testtask'
 
 task default: :spec
 
+namespace :credentials do
+  require 'yaml'
+
+  desc 'Export sample credentials from file to bash'
+  task :export do
+    credentials = YAML.load(File.read('config/github_credential.yml'))
+    puts 'Please run the following in bash:'
+    puts "export GH_USERNAME=#{credentials[:username]}"
+    puts "export GH_TOKEN=#{credentials[:token]}"
+  end
+end
+
 desc 'run tests'
 task :spec do
   sh 'ruby spec/github_spec.rb'
