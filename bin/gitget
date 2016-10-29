@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), *%w(.. lib))
+require 'gitget'
+
+developer_name = ARGV[0] || ENV['USERNAME']
+unless developer_name
+  puts 'USAGE: gitget [developer_username]'
+  exit(1)
+end
+
+#puts developer_name
+
+developer = Github::Developer.find(username: developer_name)
+
+puts developer.name
+developer.repos.first(3).each.with_index do |repo, index|
+  print "#{index + 1}: "
+  puts "Repo name: " + repo.name.to_s
+  puts "Repo ID: " + repo.id.to_s
+  puts "Number of watchers: " + repo.watchers_count.to_s
+  puts "Number of Issues: " + repo.open_issues_count.to_s
+end
