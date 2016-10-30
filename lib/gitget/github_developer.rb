@@ -1,5 +1,4 @@
-require_relative 'github_api'
-require_relative 'github_repository'
+# frozen_string_literal: true
 
 module  Github
   # Main class to set up a Github User

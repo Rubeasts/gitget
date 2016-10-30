@@ -1,5 +1,4 @@
-require_relative 'github_api'
-require_relative 'github_developer'
+# frozen_string_literal: true
 
 module  Github
   # Main class to set up a Github User
@@ -25,8 +24,6 @@ module  Github
     end
 
     def load_data(repo_data)
-      @id = repo_data['id']
-      @name = repo_data['name']
       @full_name = repo_data['full_name']
       @is_private = repo_data['is_private']
       @is_fork = repo_data['is_fork']
