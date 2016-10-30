@@ -8,8 +8,6 @@ rvm:
 branches:
   only:
     - master
-    - travis
-    - rubocop
 script: bundle exec rake spec
 gemfile:
   - Gemfile
