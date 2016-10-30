@@ -1,12 +1,15 @@
 language: ruby
-
-script: bundle exec rake test
-
 rvm:
   - 2.0.0
   - 2.1.10
   - 2.2.5
   - 2.3.1
   - ruby-head
+branches:
+  only:
+    - master
+    - travis
+    - rubocop
+script: bundle exec rake spec
 gemfile:
   - Gemfile
