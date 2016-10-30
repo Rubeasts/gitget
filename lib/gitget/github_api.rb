@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 require 'http'
 require 'json'
@@ -5,17 +7,17 @@ require 'json'
 module  Github
   # Service for all Github API call
   class API
-    GITHUB_API_URL = 'https://api.github.com'.freeze
+    GITHUB_API_URL = 'https://api.github.com'
 
     def self.config=(credentials)
-      @config ? @config.update(credentials) : config = credentials
+      @config&.update(credentials) || (@config = credentials)
     end
 
     def self.config
       return @config if @config
 
       @config = { username: ENV['GH_USERNAME'],
-                  token:    ENV['GH_TOKEN']}
+                  token:    ENV['GH_TOKEN'] }
     end
 
     def self.user_info(username)

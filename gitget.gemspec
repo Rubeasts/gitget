@@ -8,8 +8,12 @@ Gem::Specification.new do |s|
 
   s.summary     =  'Gets public information about Github developers'
   s.description =  'Extracts developer statistics'
-  s.authors     =  ['Renaud Jollet', 'Nicholas Danks', 'Sami Larrousi Tribek']
-  s.email       =  ['renaudjollet@neurow.org', 'nicholasdanks@hotmail.com', 'sami@slt.fr']
+  s.authors     =  ['Renaud Jollet',
+                    'Nicholas Danks',
+                    'Sami Larrousi Tribek']
+  s.email       =  ['renaudjollet@neurow.org',
+                    'nicholasdanks@hotmail.com',
+                    'sami@slt.fr']
 
   s.files       =  `git ls-files`.split("\n")
   s.test_files  =  `git ls-files -- spec/*`.split("\n")

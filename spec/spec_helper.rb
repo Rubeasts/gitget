@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 SimpleCov.start
 
@@ -7,15 +9,13 @@ require 'yaml'
 require 'vcr'
 require 'webmock'
 
-require_relative '../lib/gitget/github_developer'
-require_relative '../lib/gitget/github_api'
-require_relative '../lib/gitget/github_repository'
+require_relative '../lib/gitget'
 
-FIXTURES_FOLDER = 'spec/fixtures'.freeze
-CASSETTES_FOLDER = "#{FIXTURES_FOLDER}/cassettes".freeze
-CASSETTE_FILE = 'github_api'.freeze
+FIXTURES_FOLDER = 'spec/fixtures'
+CASSETTES_FOLDER = "#{FIXTURES_FOLDER}/cassettes"
+CASSETTE_FILE = 'github_api'
 
-USERNAME = 'rjollet'.freeze
+USERNAME = 'rjollet'
 
 if File.file?('config/github_credential.yml')
   credentials = YAML.load(File.read('config/github_credential.yml'))
