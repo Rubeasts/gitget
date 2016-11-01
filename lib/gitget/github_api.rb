@@ -10,7 +10,7 @@ module  Github
     GITHUB_API_URL = 'https://api.github.com'
 
     def self.config=(credentials)
-      @config&.update(credentials) || (@config = credentials)
+      @config ? @config.update(credentials) : @config = credentials
     end
 
     def self.config
