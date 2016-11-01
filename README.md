@@ -1,6 +1,6 @@
 # gitget gem
 
-Gitget is a gem that specializes in getting developers and there repository data on Github.
+Gitget is a gem that specializes in getting developers and their repository data on Github.
 
 ## Installation
 
