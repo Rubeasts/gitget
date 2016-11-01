@@ -4,3 +4,4 @@ spec/fixtures/*/*.yml
 results.yml
 github_response.yml
 coverage/
+*.gem
