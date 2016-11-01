@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Rubeasts/gitget.svg?branch=master)](https://travis-ci.org/Rubeasts/gitget)
 # gitget gem
 
 Gitget is a gem that specializes in getting developers and their repository data on Github.
