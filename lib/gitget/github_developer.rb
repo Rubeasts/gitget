@@ -33,7 +33,11 @@ module  Github
 
     def self.find(username:)
       user_data = Github::API.user_info(username)
-      new(data: user_data)
+      if user_data["message"] == "Not Found"
+        return nil
+      else
+        new(data: user_data)
+      end
     end
   end
 end
