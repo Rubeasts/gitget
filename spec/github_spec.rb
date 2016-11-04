@@ -13,10 +13,15 @@ describe 'Github specifications' do
   before do
     VCR.insert_cassette CASSETTE_FILE, record: :new_episodes
     @developer = Github::Developer.find(username: USERNAME)
+    @sad_developer = Github::Developer.find(username: SAD_USERNAME)
   end
 
   after do
     VCR.eject_cassette
+  end
+
+  it 'should return nil for no developer found' do
+    @sad_developer.must_be_nil
   end
 
   it 'should be able to open a new Github Developer' do
