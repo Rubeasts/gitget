@@ -16,6 +16,7 @@ CASSETTES_FOLDER = "#{FIXTURES_FOLDER}/cassettes"
 CASSETTE_FILE = 'github_api'
 
 USERNAME = 'rjollet'
+SAD_USERNAME = '12547'
 
 if File.file?('config/github_credential.yml')
   credentials = YAML.load(File.read('config/github_credential.yml'))
