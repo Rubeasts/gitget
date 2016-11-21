@@ -12,10 +12,10 @@ end
 
 developer = Github::Developer.find(username: developer_name)
 
-puts developer.name
+puts developer.username
 developer.repos.first(3).each.with_index do |repo, index|
   print "#{index + 1}: "
-  puts 'Repo name: ' + repo.name.to_s
+  puts 'Repo name: ' + repo.full.to_s
   puts 'Repo ID: ' + repo.id.to_s
   puts 'Number of watchers: ' + repo.watchers_count.to_s
   puts 'Number of Issues: ' + repo.open_issues_count.to_s

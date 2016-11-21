@@ -24,6 +24,7 @@ module  Github
     end
 
     def load_data(repo_data)
+      @id = repo_data['id']
       @full_name = repo_data['full_name']
       @is_private = repo_data['is_private']
       @is_fork = repo_data['is_fork']
@@ -34,6 +35,12 @@ module  Github
       @watchers_count = repo_data['watchers_count']
       @forks_count = repo_data['forks_count']
       @open_issues_count = repo_data['open_issues_count']
+    end
+
+    def self.find(owner:, repo:)
+      repo_data = Github::API.repo_info(owner, repo)
+      return nil if repo_data['message'] == 'Not Found'
+      new(data: repo_data)\
     end
   end
 end

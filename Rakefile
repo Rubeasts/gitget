@@ -3,6 +3,11 @@ require 'rake/testtask'
 
 task default: :spec
 
+Rake::TestTask.new(:spec) do |t|
+  t.pattern = 'spec/*_spec.rb'
+  t.warning = false
+end
+
 namespace :credentials do
   require 'yaml'
 
@@ -13,11 +18,6 @@ namespace :credentials do
     puts "export GH_USERNAME=#{credentials[:username]}"
     puts "export GH_TOKEN=#{credentials[:token]}"
   end
-end
-
-desc 'run tests'
-task :spec do
-  sh 'ruby spec/github_spec.rb'
 end
 
 desc 'delete cassette fixtures'

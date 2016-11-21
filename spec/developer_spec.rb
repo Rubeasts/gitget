@@ -3,15 +3,9 @@
 require_relative 'spec_helper'
 
 describe 'Github specifications' do
-  VCR.configure do |c|
-    c.cassette_library_dir = CASSETTES_FOLDER
-    c.hook_into :webmock
-
-    c.filter_sensitive_data('<AUTH>') { ENV['GH_AUTH'] }
-  end
 
   before do
-    VCR.insert_cassette CASSETTE_FILE, record: :new_episodes
+    VCR.insert_cassette DEVELOPER, record: :new_episodes
     @developer = Github::Developer.find(username: USERNAME)
     @sad_developer = Github::Developer.find(username: SAD_USERNAME)
   end
@@ -25,7 +19,7 @@ describe 'Github specifications' do
   end
 
   it 'should be able to open a new Github Developer' do
-    @developer.name.length.must_be :>, 0
+    @developer.username.length.must_be :>, 0
   end
 
   it 'should get the user id' do
