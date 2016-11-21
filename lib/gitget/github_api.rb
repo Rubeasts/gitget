@@ -25,6 +25,11 @@ module  Github
       github_api_get(route)
     end
 
+    def self.repo_info(owner, repo)
+      route = '/repos/' + owner + '/' + repo
+      github_api_get(route)
+    end
+
     def self.user_followers(username)
       route = '/users/' + username + '/followers'
       github_api_get(route)
