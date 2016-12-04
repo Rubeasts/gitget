@@ -40,6 +40,11 @@ module  Github
       github_api_get(route)
     end
 
+    def self.user_starred(username)
+      route = '/users/' + username + '/starred'
+      github_api_get(route)
+    end
+
     def self.user_repos(username)
       route = '/users/' + username + '/repos'
       github_api_get(route)

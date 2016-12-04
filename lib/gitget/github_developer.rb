@@ -21,13 +21,19 @@ module  Github
     def followers
       return @followers if @followers
 
-      @followers = Github::API.user_followers @name
+      @followers = Github::API.user_followers @username
     end
 
     def following
       return @following if @following
 
-      @following = Github::API.user_following @name
+      @following = Github::API.user_following @username
+    end
+
+    def starred
+      return @starred if @starred
+
+      @starred = Github::API.user_starred @username
     end
 
     def load_data(repo_data)
