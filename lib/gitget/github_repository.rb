@@ -6,7 +6,8 @@ module  Github
     attr_reader :id, :name, :full_name, :is_private, :is_fork, :created_at,
                 :updated_at, :pushed_at, :size, :stargazers_count,
                 :watchers_count, :has_issues, :has_downloads, :forks_count,
-                :open_issues_count, :forks, :open_issues, :watchers, :language
+                :open_issues_count, :forks, :open_issues, :watchers, :language,
+                :git_url
 
     def initialize(data: nil)
       load_data(data)
@@ -36,6 +37,7 @@ module  Github
       @forks_count = repo_data['forks_count']
       @open_issues_count = repo_data['open_issues_count']
       @language = repo_data['language']
+      @git_url = repo_data['git_url']
     end
 
     def self.find(owner:, repo:)
