@@ -36,6 +36,7 @@ module  Github
       @forks_count = repo_data['forks_count']
       @open_issues_count = repo_data['open_issues_count']
       @language = repo_data['language']
+      @git_url = repo_data['git_url']
     end
 
     def self.find(owner:, repo:)
