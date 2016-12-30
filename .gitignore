@@ -5,4 +5,3 @@ results.yml
 github_response.yml
 coverage/
 *.gem
-Gemfile.lock
