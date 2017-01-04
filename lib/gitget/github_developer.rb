@@ -13,13 +13,10 @@ module  Github
     def repos
       return @repos if @repos
 
-      repos_promise = Github::API.user_repos(@username).map do |repo_data|
-        Concurrent::Promise.execute {
+      @repos = Github::API.user_repos(@username).map do |repo_data|
           Github::Repository.new(data: repo_data)
-        }
       end
-      @repos = repos_promise.map(&:value)
-
+      @repos
     end
 
     def followers
