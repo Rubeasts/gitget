@@ -13,9 +13,10 @@ module  Github
     def repos
       return @repos if @repos
 
-      @repos = Github::API.user_repos(@username).map do |repo_data|
-          Github::Repository.new(data: repo_data)
+      repos_promises = Github::API.user_repos(@username).map do |repo_data|
+          Concurrent::Promise.execute {Github::Repository.new(data: repo_data)}
       end
+      @repos = repos_promises.map(&:value)
       @repos
     end
 
