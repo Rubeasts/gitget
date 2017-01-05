@@ -17,16 +17,20 @@ module  Github
       return @stats if @stats
 
       @stats = {}
+      stats_promises = {}
 
       stats_array = [
         'contributors',
-        'commit_activity',
         'code_frequency',
-        'participation',
-        'punch_card']
+        'participation']
 
       stats_array.each do |stat|
-        @stats[stat.to_sym] = Github::API.repo_stat(@full_name, stat)
+        stats_promises[stat.to_sym] = Concurrent::Promise.execute {
+          Github::API.repo_stat(@full_name, stat)
+        }
+      end
+      stats_promises.each do |stat_name, stat_value|
+        @stats[stat_name] = stat_value.value
       end
       @stats
     end

@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.executables << 'gitget'
 
   s.add_runtime_dependency 'http', '~> 2.0'
+  s.add_runtime_dependency 'concurrent-ruby', '~> 1.0'
 
   s.add_development_dependency 'minitest', '~> 5.9'
   s.add_development_dependency 'minitest-rg', '~> 5.2'
