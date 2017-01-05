@@ -19,7 +19,7 @@ describe 'Github specifications' do
   end
 
   it 'should be able to open a new Github Developer' do
-    @developer.username.length.must_be :>, 0
+    @developer.username.must_equal USERNAME
   end
 
   it 'should get the user id' do
@@ -39,7 +39,7 @@ describe 'Github specifications' do
   end
 
   it 'should get the repos' do
-    @developer.repos.length.must_be :>, 0
+    @developer.repos.size.must_equal @developer.public_repos
   end
 
   it 'should get the repo should have a full name' do
