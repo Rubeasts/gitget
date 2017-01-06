@@ -13,18 +13,13 @@ module  Github
       load_data(data)
     end
 
-    def stats
+    def stats(stat_names: ['code_frequency'])
       return @stats if @stats
 
       @stats = {}
       stats_promises = {}
 
-      stats_array = [
-        'contributors',
-        'code_frequency',
-        'participation']
-
-      stats_array.each do |stat|
+      stat_names.each do |stat|
         stats_promises[stat.to_sym] = Concurrent::Promise.execute {
           Github::API.repo_stat(@full_name, stat)
         }

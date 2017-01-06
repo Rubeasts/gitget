@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gitget (0.5.2)
+    gitget (0.6.0)
       concurrent-ruby (~> 1.0)
       http (~> 2.0)
 
